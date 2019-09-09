@@ -1,10 +1,9 @@
 var defaultOptions = {
-	strings = 6,
-	frets = 12
+	strings: 6,
+	frets: 12
 };
 
 function draw() {
-	alert("Hello, world!");
 	var canvas = document.getElementById('fretboard');
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
