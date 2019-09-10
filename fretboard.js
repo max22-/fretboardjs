@@ -2,12 +2,16 @@ function Fretboard(canvas) {
 	this.canvas = canvas;
 	
 	this.defaultOptions = {
-		strings: 6,
-		string_spacing: 20,
-		fret_spacing: 25,
-		starting_fret: 0,
-		end_fret: 12,
-		decreasing_string_width: true,
+		strings: {
+			number:6,
+			spacing: 20,
+			decreasing_width: true
+		},
+		frets: {
+			start: 0,
+			end: 12,
+			spacing: 25
+		},
 		nut_width: 10
 	};
 	
@@ -15,10 +19,14 @@ function Fretboard(canvas) {
 	
 	this.draw = function(x, y) {
 		var ctx = this.canvas.getContext('2d');
+		
+		// nut
 		ctx.beginPath();
 		ctx.lineWidth = this.defaultOptions.nut_width;
 		ctx.moveTo(x, y);
-		ctx.lineTo(x+this.options.string_spacing*(this.options.strings-1), y);
+		ctx.lineTo(x+this.options.strings.spacing*(this.options.strings.number-1), y);
 		ctx.stroke();
+		
+		
 	}
 }
